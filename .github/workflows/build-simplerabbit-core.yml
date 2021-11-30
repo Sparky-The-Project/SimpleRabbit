@@ -47,9 +47,6 @@ jobs:
       with:
         name: rabbit-build-artifacts
 
-    - name: Print ls
-      run: ls
-
     - name: Setup .NET Core @ Latest
       uses: actions/setup-dotnet@v1.5.0
       with:
@@ -58,6 +55,6 @@ jobs:
         NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Push generated package to GitHub registry
-      run: dotnet nuget push ./out/*.nupkg --skip-duplicate #-k ${{secrets.GITHUB_TOKEN}} --source "github"
+      run: dotnet nuget push *.nupkg --skip-duplicate #-k ${{secrets.GITHUB_TOKEN}} --source "github"
 
         
