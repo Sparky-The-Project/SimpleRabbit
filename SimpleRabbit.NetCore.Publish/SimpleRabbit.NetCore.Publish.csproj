@@ -5,8 +5,8 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>BLCKMN, PYRUTHS</Authors>
     <PackageLicenseUrl></PackageLicenseUrl>
-    <PackageProjectUrl>https://github.com/blckmn/SimpleRabbit</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/blckmn/SimpleRabbit</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/Sparky-The-Project/SimpleRabbit.git</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Sparky-The-Project/SimpleRabbit.git</RepositoryUrl>
 
     <Description>An easy wrapper for the RabbitMQ client that allows inclusion in DotNetCore projects. Provides a Publishing factory that can be used to have multiple rabbit configurations</Description>
     <Copyright>Copyright © BLCKMN 2020</Copyright>

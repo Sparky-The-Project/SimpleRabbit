@@ -5,8 +5,8 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>BLCKMN</Authors>
     <PackageLicenseUrl></PackageLicenseUrl>
-    <PackageProjectUrl>https://github.com/blckmn/SimpleRabbit</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/blckmn/SimpleRabbit</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/Sparky-The-Project/SimpleRabbit.git</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Sparky-The-Project/SimpleRabbit.git</RepositoryUrl>
 
     <Description>An easy wrapper for the RabbitMQ client that allows inclusion in DotNetCore projects. Can be used with the standard dependency injection provided in DotNetCore. Provides a HostedService implementation for subscription based DotNetCore services.</Description>
     <Copyright>Copyright © BLCKMN 2018</Copyright>
