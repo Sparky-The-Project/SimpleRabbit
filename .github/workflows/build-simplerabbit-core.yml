@@ -22,13 +22,13 @@ jobs:
 
       - name: Setup .NET Core @ Latest
         uses: actions/setup-dotnet@v1
-        
+
       - name: Restore project
         run: dotnet restore
 
       - name: Build project
         run: dotnet build --configuration Release
-          
+
       - name: Add Nuget Repo
         run: dotnet nuget add source --name github "${{ env.SOURCE_URL }}"
 
@@ -42,5 +42,6 @@ jobs:
             dotnet nuget push $f --source github --skip-duplicate --api-key ${{ secrets.GITHUB_TOKEN }}
           done
         shell: bash
+      
 
         
