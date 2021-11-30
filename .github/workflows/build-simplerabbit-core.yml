@@ -49,10 +49,6 @@ jobs:
 
     - name: Setup .NET Core @ Latest
       uses: actions/setup-dotnet@v1.5.0
-      with:
-        source-url: ${{ env.SOURCE_URL }}
-      env:
-        NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Add Nuget Repo
       run: dotnet nuget add source --username ${{ github.actor }} --password ${{secrets.GITHUB_TOKEN}} --store-password-in-clear-text --name github "${{ env.SOURCE_URL }}"
