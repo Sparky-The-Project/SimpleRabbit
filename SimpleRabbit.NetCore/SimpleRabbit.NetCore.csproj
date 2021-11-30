@@ -5,14 +5,16 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>BLCKMN</Authors>
     <PackageLicenseUrl></PackageLicenseUrl>
-    <PackageProjectUrl>https://github.com/blckmn/SimpleRabbit</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/blckmn/SimpleRabbit</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/Sparky-The-Project/SimpleRabbit.git</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Sparky-The-Project/SimpleRabbit.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
 
     <Description>An easy wrapper for the RabbitMQ client that allows inclusion in DotNetCore projects. Can be used with the standard dependency injection provided in DotNetCore.</Description>
-    <Copyright>Copyright © BLCKMN 2018</Copyright>
-    <Summary>A simple DotNetCore (2.1) wrapper for the RabbitMQ client.</Summary>
     <NeutralLanguage>en-US</NeutralLanguage>
     <Title>SimpleRabbit.NetCore</Title>
+    <VersionPrefix>1.1.1</VersionPrefix>
+    <VersionSuffix>$(VersionSuffix)</VersionSuffix>
+    <PackageDescription>Hi</PackageDescription>
     <PackageId>SimpleRabbit.NetCore</PackageId>
     <PackageTags>RabbitMq Publish</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>

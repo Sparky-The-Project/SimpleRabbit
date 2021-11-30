@@ -6,9 +6,8 @@ on:
       - master
 
 env:
-  REGISTRY: ghcr.io
-  IMAGE_NAME: "${{ github.event.repository.owner.name }}/${{ github.event.repository.name }}/{{SERVICE}}"
   PROJECT: "SimpleRabbit.NetCore"
+  SOURCE_URL: "https://nuget.pkg.github.com/${{ github.event.repository.owner.name }}/RabbitMQ/index.json"
 
 jobs:
   build-image:
@@ -16,19 +15,45 @@ jobs:
     steps:
 
       - name: Checkout repository
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
 
       - name: Setup .NET Core @ Latest
         uses: actions/setup-dotnet@v1
-        with:
-          source-url: https://nuget.pkg.github.com/${{ github.event.repository.owner.name }}/index.json
-        env:
-          NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}        
-          
-      - name: Build solution and generate NuGet package
-        run: |  
-          cd ${{ env.PROJECT }}
-          dotnet pack -c Release -o out  
 
-      - name: Push generated package to GitHub registry
-        run: dotnet nuget push ./${{ env.PROJECT }}/out/*.nupkg --skip-duplicate --no-symbols true
+      - name: Enter Project Directory
+        run: cd ${{ env.PROJECT }}   
+        
+      - name: Restore project
+        run: dotnet restore
+
+      - name: Build project
+        run: dotnet build --configuration Release
+
+      - name: Generate NuGet package
+        run: dotnet pack -c Release -o out
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: rabbit-build-artifacts
+          path: ./out/
+
+  publish-image:
+    runs-on: ubuntu-latest
+    needs: build-image
+    steps:
+    - name: Download artifact
+      uses: actions/download-artifact@v2
+      with:
+        name: rabbit-build-artifacts
+
+    - name: Setup .NET Core @ Latest
+      uses: actions/setup-dotnet@v1.5.0
+
+    - name: Add Nuget Repo
+      run: dotnet nuget add source --username ${{ github.actor }} --password ${{secrets.GITHUB_TOKEN}} --store-password-in-clear-text --name github "${{ env.SOURCE_URL }}"
+
+    - name: Push generated package to GitHub registry
+      run: dotnet nuget push *.nupkg --skip-duplicate -k ${{secrets.GITHUB_TOKEN}} #--source "github"
+
+        
