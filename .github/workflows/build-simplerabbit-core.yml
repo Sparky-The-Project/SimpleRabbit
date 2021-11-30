@@ -56,7 +56,7 @@ jobs:
       env:
         NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Push generated package to GitHub registry
-        run: dotnet nuget push ./out/*.nupkg --skip-duplicate #-k ${{secrets.GITHUB_TOKEN}} --source "github"
+    - name: Push generated package to GitHub registry
+      run: dotnet nuget push ./out/*.nupkg --skip-duplicate #-k ${{secrets.GITHUB_TOKEN}} --source "github"
 
         
