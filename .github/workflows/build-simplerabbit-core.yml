@@ -32,7 +32,7 @@ jobs:
       - name: Generate NuGet package
         run: dotnet pack -c Release -o out
 
-      - name: Archive code coverage results
+      - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
           name: rabbit-build-artifacts
@@ -46,6 +46,9 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: rabbit-build-artifacts
+
+    - name: Print ls
+      run: ls
 
     - name: Setup .NET Core @ Latest
       uses: actions/setup-dotnet@v1.5.0
