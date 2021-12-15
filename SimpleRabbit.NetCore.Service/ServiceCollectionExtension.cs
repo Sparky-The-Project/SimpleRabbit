@@ -23,7 +23,7 @@ namespace SimpleRabbit.NetCore.Service
         {
             return services
                 .AddHostedService<QueueFactory>()
-                .AddTransient<IQueueService, QueueService>();
+                .AddSingleton<IQueueService, QueueService>();
         }
 
         /// <summary>

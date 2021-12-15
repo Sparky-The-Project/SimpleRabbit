@@ -18,7 +18,7 @@ namespace SimpleRabbit.NetCore
         public static IServiceCollection AddPublisherServices(this IServiceCollection services)
         {
             return services
-                .AddTransient<IPublishService, PublishService>()
+                .AddSingleton<IPublishService, PublishService>()
                 .AddSingleton(c => c.GetService<IOptions<RabbitConfiguration>>()?.Value);
         }
 
