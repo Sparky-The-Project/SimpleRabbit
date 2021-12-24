@@ -32,7 +32,7 @@ namespace SimpleRabbit.NetCore
         public static IServiceCollection AddRabbitGenerics(this IServiceCollection services)
         {
             return services
-                .AddSingleton<IBasicRabbitService, BasicRabbitService>()
+                .AddSingleton<IGenericRabbitService, GenericRabbitService>()
                 .AddSingleton(c => c.GetService<IOptions<RabbitConfiguration>>()?.Value);
         }
     }
