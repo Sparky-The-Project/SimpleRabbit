@@ -96,7 +96,7 @@ namespace SimpleRabbit.NetCore
             Channel.ExchangeDeclare(name, ExchangeType.Direct);
         }
 
-        public void CreateQueue(string exchange, string name)
+        public void CreateQueue(string name, string exchange)
         {
             CreateQueue(name);
             Channel.QueueBind(name, exchange, name);
