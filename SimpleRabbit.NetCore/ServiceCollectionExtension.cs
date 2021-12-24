@@ -28,5 +28,12 @@ namespace SimpleRabbit.NetCore
         {
             return services.Configure<RabbitConfiguration>(name, config);
         }
+
+        public static IServiceCollection AddRabbitGenerics(this IServiceCollection services)
+        {
+            return services
+                .AddSingleton<IBasicRabbitService, BasicRabbitService>()
+                .AddSingleton(c => c.GetService<IOptions<RabbitConfiguration>>()?.Value);
+        }
     }
 }
